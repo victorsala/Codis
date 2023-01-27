@@ -36,6 +36,7 @@ historyButton.style.margin = '5px';
 document.body.appendChild(historyButton);
 
 var historyText = [];
+document.cookie = 'historyCookie=test';
 
 submitButton.onclick = function() {
   response.innerHTML = textField.value;
@@ -45,7 +46,7 @@ submitButton.onclick = function() {
 }
 
 historyButton.onclick = function() {
-  response.innerHTML = historyText;
+  response.innerHTML = historyText;  
 }
 
 });
