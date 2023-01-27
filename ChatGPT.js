@@ -102,24 +102,24 @@ function Send() {
 
 
 function TextToSpeech(s) {
-    if (bTextToSpeechSupported == false) return;
-    if (chkMute.checked) return;
+     if (bTextToSpeechSupported == false) return;
+    if (chkMute.checked) return;
 
-    oSpeechSynthesisUtterance = new SpeechSynthesisUtterance();
+    oSpeechSynthesisUtterance = new SpeechSynthesisUtterance();
 
-    if (oVoices) {
-        var sVoice = selVoices.value;
-        if (sVoice != "") {
-            oSpeechSynthesisUtterance.voice = oVoices[parseInt(sVoice)];
-        }        
-    }    
+    if (oVoices) {
+     var sVoice = selVoices.value;
+        if (sVoice != "") {
+         oSpeechSynthesisUtterance.voice = oVoices[parseInt(sVoice)];
+         } 
+    } 
 
-    oSpeechSynthesisUtterance.onend = function () {
-        //finished talking - can now listen
-        if (oSpeechRecognizer && chkSpeak.checked) {
-            oSpeechRecognizer.start();
-        }
-    }
+    oSpeechSynthesisUtterance.onend = function () {
+        //finished talking - can now listen
+         if (oSpeechRecognizer && chkSpeak.checked) {
+             oSpeechRecognizer.start();
+         }
+    }
 
     if (oSpeechRecognizer && chkSpeak.checked) {
         //do not listen to yourself when talking
