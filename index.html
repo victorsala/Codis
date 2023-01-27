@@ -40,6 +40,8 @@ var historyText = [];
 submitButton.onclick = function() {
   response.innerHTML = textField.value;
   historyText.push(textField.value);
+  var historyCookie = document.cookie.replace(/(?:(?:^|.*;\s*)History\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+  document.cookie = 'History=' + historyCookie + ',' + textField.value;
 }
 
 historyButton.onclick = function() {
