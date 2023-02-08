@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+ 
+    function buttonClickHandler() {
+        var Myquestion = document.getElementById("question").value;
+		var myURL = "https://victorsala.me/ChatGPT.php?question=" + Myquestion; 
+        // Instantiate an xhr object
+        var xhr = new XMLHttpRequest();
+        
+        // What to do when response is ready  
+        xhr.onreadystatechange = () => {
+            if(xhr.readyState === 4) {
+                if(xhr.status === 200) {
+                    document.getElementById("txt").innerHTML = 
+                    xhr.responseText;
+                } else {
+                    console.log('Error Code: ' + xhr.status);
+                    console.log('Error Message: ' + xhr.statusText);
+                }
+            }
+        }
+        xhr.open('GET', myURL);
+        
+        // Send the request
+        xhr.send();
+    }
+    </script>
+
+</head>
+<body>
+<h2>Parlar amb el ChatGPT</h2>
+<p id="demo">MVP per al projecte - v0.1</p>
+    <input type="text" name="question" id="question" placeholder="Question?" required/>
+    <input type="submit" name="submit" value="Send" onclick="buttonClickHandler()"/>
+<p id="txt"></p>
+</body>
+</html>
